@@ -19,6 +19,7 @@ private:
     Ui::MainWindow *ui;
     double ratio();
     double m_ratio;
+    void resizeEvent(QResizeEvent *event) override;
 };
 
 #endif // MAINWINDOW_H
