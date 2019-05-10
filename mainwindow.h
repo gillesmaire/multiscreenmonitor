@@ -1,7 +1,14 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <QResizeEvent>
+
+
+
+
+
 
 namespace Ui {
 class MainWindow;
@@ -15,26 +22,13 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void reload();
+    void delayUpdate();
+
 private:
     Ui::MainWindow *ui;
-    void TotalSize();
-
-    int m_allScreensWith=0;
-    int m_allScreensHeight=0;
-    int m_widgetWidth;
-    int m_widgetHeight;
-    QList <QPixmap> m_lp;
-    QList <QRectF> m_rects;
-
-    void paintEvent(QPaintEvent *event) override;
-    void resizeEvent(QResizeEvent *event) override;
-    void mousePressEvent(QMouseEvent *e) override;
-    void RelativeSizes();
-private slots:
-    void Draw();
-    void MakeScreenShots();
-signals:
-    void askDraw();
+   void resizeEvent(QResizeEvent *) override;
 };
 
 #endif // MAINWINDOW_H

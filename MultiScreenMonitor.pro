@@ -25,12 +25,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    mywindow.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    mywindow.h
 
 FORMS += \
         mainwindow.ui
 
-unix:LIBS += -lX11
+unix:LIBS += -lX11 -lXft
+unix:INCLUDEPATH += /usr/include/freetype2
+
+RESOURCES += \
+    resources.qrc
